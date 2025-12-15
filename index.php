@@ -1,8 +1,6 @@
 <?php
-// index.php
-
-// 1. Инициализация логики (В будущем этот вызов может быть перенесен в CLI)
 require 'calculator.php';
+require 'data.php';
 
 $rawData = require 'data.php';
 $processor = new DataProcessor($rawData);
@@ -35,7 +33,6 @@ $tableData = $processor->processData();
                     <td><?= htmlspecialchars($row['Day']) ?></td>
                     <td>
                         <?php 
-                        // Проверяем, является ли значение строкой (т.е. "Данные отсутствуют")
                         if (is_string($row['V1'])) {
                             echo htmlspecialchars($row['V1']);
                         } else {
@@ -54,7 +51,6 @@ $tableData = $processor->processData();
                     </td>
                     <td class="<?= $row['highlight'] ? 'highlight' : '' ?>">
                         <?php 
-                        // Выводим форматированную строку с процентом или пустую строку для дня 1
                         echo htmlspecialchars($row['%_formatted']); 
                         ?>
                     </td>
